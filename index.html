@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fb"><link rel="manifest" href="/manifest.json">
+<title>Bharat Help AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e9edf4;color:#152033;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.app{max-width:520px;margin:auto;min-height:100vh;background:#f7f8fb;position:relative;padding-bottom:88px}
+.top{position:sticky;top:0;z-index:20;background:#f7f8fbee;backdrop-filter:blur(18px);border-bottom:1px solid #e7eaf0}
+.tri{height:4px;background:linear-gradient(90deg,#ff8a00 0 33%,#fff 33% 66%,#168a4a 66%)}
+.head{height:68px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#ff9a2e,#ee6412);color:white;display:grid;place-items:center;font-weight:900;box-shadow:0 7px 18px #ef741f30}
+.brand b{display:block;font-size:17px}.brand small{color:#7b8494;font-size:10px}.bell{width:40px;height:40px;border:0;border-radius:13px;background:white;font-size:18px}
+main{padding:16px}.page{display:none}.page.active{display:block}
+.hero{border-radius:25px;padding:22px;background:linear-gradient(135deg,#fff5e8,#eef5ff);border:1px solid #edf0f5;overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;right:-45px;top:-55px;width:170px;height:170px;border-radius:50%;background:#2c67e812}
+.hero h1{margin:0;font-size:27px;line-height:1.12}.hero h1 span{color:#245bd7}.hero p{color:#6e7788;font-size:13px;line-height:1.55;margin:9px 0 0}
+.search{margin-top:15px;background:white;border:1px solid #e2e6ee;border-radius:17px;padding:12px 14px;display:flex;gap:9px;align-items:center;box-shadow:0 8px 25px #15203308}
+.search input{border:0;outline:0;flex:1;font-size:13px;background:transparent}.mic{border:0;background:#edf3ff;color:#245bd7;border-radius:10px;padding:8px}
+.section{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section b{font-size:16px}.section span{font-size:11px;color:#245bd7}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{background:#fff;border:1px solid #e8ebf1;border-radius:18px;padding:14px;min-height:105px;box-shadow:0 5px 18px #15203307}.ico{font-size:24px;margin-bottom:8px}.card b{font-size:13px}.card small{display:block;color:#7a8290;margin-top:4px;font-size:10px;line-height:1.35}
+.banner{margin-top:12px;border-radius:20px;padding:17px;color:white;background:linear-gradient(135deg,#1e9a59,#0f7d47);display:flex;justify-content:space-between;align-items:center}.banner b{font-size:15px}.banner small{display:block;opacity:.86;margin-top:3px}.banner button{border:0;background:#fff;color:#126f42;border-radius:12px;padding:10px;font-weight:800}
+.chat{background:#fff;border:1px solid #e6e9ef;border-radius:22px;overflow:hidden}.chathead{padding:13px 14px;border-bottom:1px solid #edf0f4;display:flex;justify-content:space-between}.msgs{height:53vh;min-height:350px;overflow:auto;padding:12px}.m{max-width:88%;padding:11px 13px;border-radius:17px;margin:8px 0;font-size:13px;line-height:1.5}.bot{background:#f1f4f8;border-bottom-left-radius:6px}.you{margin-left:auto;background:#2862dd;color:white;border-bottom-right-radius:6px}.composer{display:flex;gap:7px;padding:9px;border-top:1px solid #edf0f4}.composer input{flex:1;border:1px solid #e1e5ec;border-radius:14px;padding:11px;outline:0}.composer button{border:0;border-radius:13px;width:43px;background:#2862dd;color:white}
+.list{display:flex;flex-direction:column;gap:10px}.item{background:#fff;border:1px solid #e6e9ef;border-radius:18px;padding:14px;display:flex;gap:12px;align-items:center}.item .round{width:48px;height:48px;border-radius:15px;background:#eef4ff;display:grid;place-items:center;font-size:22px}.item b{font-size:14px}.item small{display:block;color:#7b8391;margin-top:3px}.item button{margin-left:auto;border:0;background:#edf3ff;color:#245bd7;border-radius:10px;padding:8px;font-weight:700;font-size:11px}
+.emergency{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.e{border:0;border-radius:17px;padding:15px 7px;background:#fff;border:1px solid #eceef3;text-align:center}.e strong{display:block;font-size:18px}.e small{color:#727b8a}
+.bottom{position:fixed;z-index:30;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#ffffffee;backdrop-filter:blur(18px);border-top:1px solid #e4e7ee;padding:8px 9px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr)}
+.nav{border:0;background:transparent;color:#778091;font-size:10px;padding:5px}.nav div{font-size:19px;margin-bottom:2px}.nav.active{color:#245bd7;font-weight:800}
+.pill{display:inline-block;padding:6px 9px;border-radius:999px;background:#edf3ff;color:#245bd7;font-size:10px;margin:4px 4px 0 0}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="tri"></div><div class="head">
+<div class="brand"><div class="logo">BH</div><div><b>Bharat Help AI</b><small>भारत के लिए स्मार्ट सहायता</small></div></div><button class="bell">🔔</button>
+</div></header>
+
+<main>
+<section id="home" class="page active">
+<div class="hero"><h1>नमस्ते! 👋<br><span>आपको किस मदद की जरूरत है?</span></h1><p>सवाल पूछें, जानकारी खोजें और सही दिशा में अगला कदम समझें।</p>
+<div class="search"><span>🔎</span><input placeholder="कुछ भी पूछें…" onkeydown="if(event.key==='Enter')goChat(this.value)"><button class="mic" onclick="goChat('मैं बोलकर सवाल पूछना चाहता हूँ')">🎙️</button></div></div>
+<div class="section"><b>लोकप्रिय सेवाएँ</b><span>सभी देखें</span></div>
+<div class="grid">
+<div class="card" onclick="show('chat')"><div class="ico">🤖</div><b>AI Chat</b><small>सवाल पूछें और जवाब पाएँ</small></div>
+<div class="card" onclick="show('missing')"><div class="ico">🔎</div><b>लापता व्यक्ति</b><small>रिपोर्ट और खोज सहायता</small></div>
+<div class="card" onclick="show('schemes')"><div class="ico">🏛️</div><b>सरकारी योजनाएँ</b><small>योजनाओं की जानकारी</small></div>
+<div class="card"><div class="ico">💼</div><b>नौकरी सहायता</b><small>करियर और आवेदन की मदद</small></div>
+<div class="card"><div class="ico">🎓</div><b>शिक्षा</b><small>पढ़ाई और सीखने की सहायता</small></div>
+<div class="card"><div class="ico">⚖️</div><b>कानूनी जानकारी</b><small>सामान्य जानकारी और दिशा</small></div>
+</div>
+<div class="banner"><div><b>🚨 आपातकालीन सहायता</b><small>तुरंत सहायता की जरूरत हो तो</small></div><button onclick="show('emergency')">खोलें →</button></div>
+</section>
+
+<section id="chat" class="page">
+<div class="section"><b>🤖 Bharat Help AI</b><span>Online</span></div>
+<div class="chat"><div class="chathead"><b>AI Assistant</b><small>Hindi • English</small></div>
+<div class="msgs" id="msgs"><div class="m bot">नमस्ते! 👋 मैं Bharat Help AI हूँ। आप अपना सवाल लिखकर पूछ सकते हैं।</div></div>
+<div class="composer"><input id="q" placeholder="अपना सवाल लिखें…" onkeydown="if(event.key==='Enter')send()"><button onclick="send()">➤</button></div></div>
+</section>
+
+<section id="missing" class="page">
+<div class="section"><b>🔎 लापता व्यक्ति</b><span>सुरक्षित रिपोर्टिंग</span></div>
+<div class="search"><span>🔎</span><input placeholder="नाम, शहर या विवरण से खोजें…"></div>
+<div style="margin:10px 0"><span class="pill">सभी</span><span class="pill">बच्चे</span><span class="pill">महिला</span><span class="pill">पुरुष</span></div>
+<div class="list">
+<div class="item"><div class="round">👤</div><div><b>लापता व्यक्ति की रिपोर्ट</b><small>सत्यापित जानकारी के आधार पर खोजें</small></div><button>विवरण</button></div>
+<div class="item"><div class="round">➕</div><div><b>नई रिपोर्ट करें</b><small>आवश्यक जानकारी सुरक्षित तरीके से दें</small></div><button>रिपोर्ट</button></div>
+</div>
+</section>
+
+<section id="schemes" class="page">
+<div class="section"><b>🏛️ सरकारी योजनाएँ</b><span>जानकारी</span></div>
+<div class="search"><span>🔎</span><input placeholder="योजना का नाम खोजें…"></div>
+<div class="list" style="margin-top:12px">
+<div class="item"><div class="round">🏠</div><div><b>आवास से जुड़ी योजनाएँ</b><small>पात्रता और आवेदन की आधिकारिक जानकारी देखें</small></div><button>देखें</button></div>
+<div class="item"><div class="round">🌾</div><div><b>किसानों से जुड़ी योजनाएँ</b><small>लाभ और आधिकारिक पोर्टल की जानकारी</small></div><button>देखें</button></div>
+<div class="item"><div class="round">🎓</div><div><b>छात्रवृत्ति और शिक्षा</b><small>उपलब्ध योजनाओं की जानकारी</small></div><button>देखें</button></div>
+</div>
+</section>
+
+<section id="emergency" class="page">
+<div class="section"><b>🚨 आपातकालीन सहायता</b><span>तुरंत सहायता</span></div>
+<p style="color:#727b8a;font-size:12px">अगर किसी की सुरक्षा को तत्काल खतरा है, स्थानीय emergency services से संपर्क करें। AI को emergency response का विकल्प न मानें।</p>
+<div class="emergency"><button class="e"><strong>112</strong><small>Emergency</small></button><button class="e"><strong>🚓</strong><small>Police</small></button><button class="e"><strong>🏥</strong><small>Medical</small></button></div>
+<div class="list" style="margin-top:12px"><div class="item"><div class="round">📍</div><div><b>नजदीकी सहायता केंद्र</b><small>अपने स्थानीय आधिकारिक संसाधनों का उपयोग करें</small></div><button>खोजें</button></div></div>
+</section>
+</main>
+
+<nav class="bottom">
+<button class="nav active" data-page="home" onclick="show('home')"><div>🏠</div>होम</button>
+<button class="nav" data-page="chat" onclick="show('chat')"><div>💬</div>AI Chat</button>
+<button class="nav" data-page="missing" onclick="show('missing')"><div>🔎</div>लापता</button>
+<button class="nav" data-page="schemes" onclick="show('schemes')"><div>🏛️</div>योजनाएँ</button>
+<button class="nav" data-page="emergency" onclick="show('emergency')"><div>🚨</div>Help</button>
+</nav>
+</div>
+<script>
+function show(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===id));scrollTo(0,0)}
+function goChat(v){show('chat');if(v){document.getElementById('q').value=v;send()}}
+async function send(){let q=document.getElementById('q'),v=q.value.trim();if(!v)return;let box=document.getElementById('msgs');box.innerHTML+=`<div class="m you">${esc(v)}</div>`;q.value='';try{let r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:v,sessionId:localStorage.bhai|| (localStorage.bhai=crypto.randomUUID())})});let j=await r.json();box.innerHTML+=`<div class="m bot">${esc(j.answer||'अभी जवाब नहीं मिला।')}</div>`}catch(e){box.innerHTML+=`<div class="m bot">अभी AI server से कनेक्शन नहीं हो पाया। बाद में फिर कोशिश करें।</div>`}box.scrollTop=box.scrollHeight}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+</script>
+</body></html>
